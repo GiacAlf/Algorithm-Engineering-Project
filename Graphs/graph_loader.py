@@ -11,19 +11,19 @@ class GraphLoader:
         self.file_path = file_path
 
     def load_graph_from_csv(self):
-        # Inizializza un grafo con un numero sufficiente di nodi
-        graph = nk.graph.Graph(0, 0)  # crea un grafo vuoto
+        # initialize graph with a minimum number of nodes
+        graph = nk.graph.Graph(0, 0)  # empty graph
         with open(self.file_path, 'r') as file:
             reader = csv.reader(file)
-            next(reader)  # Salta l'intestazione
+            next(reader)  # jumps the header
 
-            # Aggiungi gli archi e i nodi
+            # adds nodes and edges to the graph
             for row in reader:
                 u, v = int(row[0]), int(row[1])
-                # Aggiungi i nodi se non esistono
+                # adds nodes if they don't exist
                 while graph.numberOfNodes() <= max(u, v):
-                    graph.addNode()  # aggiungi un nodo
-                graph.addEdge(u, v)  # ora puoi aggiungere l'arco
+                    graph.addNode()  # add a node
+                graph.addEdge(u, v)  # add the edge
         return graph
 
 
@@ -32,6 +32,6 @@ if __name__ == '__main__':
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
-    # Stampa le informazioni sul grafo caricato
+    # print the number of nodes and edges
     print(f"Number of nodes: {graph.numberOfNodes()}")
     print(f"Number of edges: {graph.numberOfEdges()}")

@@ -3,21 +3,22 @@ import networkit as nk
 import os
 
 
+# this function generates a random graph with num_nodes nodes and num_edges edges
 def generate_graph(num_nodes, num_edges):
-    # Genera un grafo casuale con num_nodes nodi e num_edges archi
     graph = nk.generators.ErdosRenyiGenerator(num_nodes, num_edges / (num_nodes * (num_nodes - 1) / 2)).generate()
     return graph
 
 
+# this function saves the graph to a CSV file
 def save_graph_to_csv(graph, file_path):
-    # Assicurati che la cartella esista
+    # it chechs if the folder exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     with open(file_path, mode="w", newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["source", "target"])  # intestazioni delle colonne
-        for u in graph.iterNodes():  # Usa iterNodes() per ottenere i nodi
-            for v in graph.iterNeighbors(u):  # Usa iterNeighbors() per ottenere i vicini
+        writer.writerow(["source", "target"])  # column names
+        for u in graph.iterNodes():  # uses of iterNodes() to get the nodes
+            for v in graph.iterNeighbors(u):  # uses of iterNeighbors() to get the neighbors
                 writer.writerow([u, v])
 
 
