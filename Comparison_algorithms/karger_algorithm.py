@@ -1,11 +1,12 @@
-import networkit as nk
-import networkx as nx
 import random
+
+import networkx as nx
+
 from Graphs.graph_loader import GraphLoader
-from sub_algorithms.expander_decomposition import ExpanderDecomposition
-from sub_algorithms.trim import trim
-from sub_algorithms.shave import shave
-from sub_algorithms.contract_graph import contract_graph
+from Sub_algorithms.contract_graph import contract_graph
+from Sub_algorithms.expander_decomposition import ExpanderDecomposition
+from Sub_algorithms.shave import shave
+from Sub_algorithms.trim import trim
 
 
 def karger_edge_connectivity(graph):
@@ -34,7 +35,7 @@ def karger_edge_connectivity(graph):
 
 if __name__ == '__main__':
     # Load the graph
-    file_path = 'Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

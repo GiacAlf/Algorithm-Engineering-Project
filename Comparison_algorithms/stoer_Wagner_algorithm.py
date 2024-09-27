@@ -23,11 +23,11 @@ def stoer_wagner_edge_connectivity(graph):
 
 if __name__ == '__main__':
     # Carica il grafo
-    file_path = 'Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
     # Calcola la connettività degli archi
     k = stoer_wagner_edge_connectivity(graph)
 
-    print(f"Karger's Edge Connectivity (Deterministic): {k}")
+    print(f"stoer_wagner's Edge Connectivity (Deterministic): {k}")
