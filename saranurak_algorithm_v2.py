@@ -3,10 +3,10 @@ SARANURAK ALGORITHM
 
 The following algorithm performs edge connectivity on simple graphs.
 The computation is performed using 4 different sub-algorithms applied in the following order:
-1 - Expander Decomposition: Expander(G, φ) implemented in expander_decomposition.py
-2 - Trimming: Trim(G, S) implemented in trim.py
-3 - Shaving: Shave(G, S) implemented in shave.py
-4 - Gabow's edge connectivity: edge_connectivity(G) implemented in edge_connectivity.py
+1 - Expander Decomposition: Expander(G, φ) implemented in expander_decomposition_v3.py
+2 - Trimming: Trim(G, S) implemented in trim_v3.py
+3 - Shaving: Shave(G, S) implemented in shave_v3.py
+4 - Gabow's edge connectivity: edge_connectivity(G) implemented in edge_connectivity_v3.py
 """
 
 from Graphs.graph_loader import GraphLoader
