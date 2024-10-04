@@ -42,5 +42,5 @@ if __name__ == '__main__':
     file_path = os.path.join(result_folder, file_name)
 
     generator = GraphGenerator(result_folder, file_name)
-    graph = generate_graph(20, 40)
+    graph = generate_graph(4000, 5000)
     save_graph_to_csv(graph, file_path)

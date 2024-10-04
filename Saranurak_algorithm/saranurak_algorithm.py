@@ -43,10 +43,6 @@ def contract_graph(graph, partition):
     return contracted_graph
 
 
-
-
-
-
 if __name__ == '__main__':
     # Path al file CSV
     file_path = '../Graphs/generated_graphs/generated_graph.csv'
