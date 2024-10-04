@@ -21,7 +21,7 @@ if __name__ == '__main__':
     graph = loader.load_graph_from_csv()
 
     # execution of expander decomposition
-    phi = 0.5  # parameter φ
+    phi = 20  # parameter φ
     expander = ExpanderDecomposition(graph, phi)
     partition = expander.run()
 

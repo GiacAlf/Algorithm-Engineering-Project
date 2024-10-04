@@ -2,23 +2,25 @@ import networkit as nk
 
 
 def contract_graph(graph, partition):
-    contracted_graph = nk.Graph(graph.numberOfNodes(), weighted=False)
-    supernode_map = {}
+    """
+    Questa funzione contrae il grafo `graph` sulla base della partizione fornita.
+    Ogni insieme della partizione viene contratto in un singolo nodo.
+    """
+    contracted_graph = nk.Graph(graph.upperEdgeIdBound(), weighted=False, directed=False)
 
+    # Crea una mappatura nodo -> supernodo basata sulla partizione
+    node_to_supernode = {}
     for subset in partition.getSubsetIds():
-        members = list(partition.getMembers(subset))  # Convert set to list
-        if len(members) > 1:
-            supernode = members[0]
-            for node in members:
-                supernode_map[node] = supernode
-        else:
-            supernode_map[members[0]] = members[0]
+        members = partition.getMembers(subset)
+        supernode = members[0]  # Rappresentiamo il supernodo con uno dei nodi dell'insieme
+        for node in members:
+            node_to_supernode[node] = supernode
 
-    for u in graph.iterNodes():
-        for v in graph.iterNeighbors(u):
-            u_contracted = supernode_map[u]
-            v_contracted = supernode_map[v]
-            if u_contracted != v_contracted:
-                contracted_graph.addEdge(u_contracted, v_contracted)
+    # Aggiungi archi tra i supernodi nel grafo contratto
+    for u, v in graph.iterEdges():
+        super_u = node_to_supernode[u]
+        super_v = node_to_supernode[v]
+        if super_u != super_v:  # Evita i loop
+            contracted_graph.addEdge(super_u, super_v)
 
     return contracted_graph
