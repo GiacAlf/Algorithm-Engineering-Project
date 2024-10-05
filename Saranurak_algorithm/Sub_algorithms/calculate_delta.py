@@ -4,8 +4,8 @@ from Graphs.graph_loader import GraphLoader
 
 # Algoritmo per calcolare delta (minimo grado tra i nodi, ignorando i nodi isolati)
 def calculate_delta(graph):
-    # Inizializza delta con un valore molto alto
-    delta = float('inf')
+    # Inizializza delta
+    delta = 0
     isolated_nodes = 0
 
     # Itera su tutti i nodi del grafo

@@ -12,10 +12,9 @@ class GraphLoader:
 
     def load_graph_from_csv(self):
         # initialize graph with a minimum number of nodes
-        graph = nk.graph.Graph(0, 0)  # empty graph
+        graph = nk.graph.Graph()  # empty graph
         with open(self.file_path, 'r') as file:
             reader = csv.reader(file)
-            next(reader)  # jumps the header
 
             # adds nodes and edges to the graph
             for row in reader:
