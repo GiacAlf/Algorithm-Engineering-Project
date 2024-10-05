@@ -74,7 +74,7 @@ if __name__ == '__main__':
     file_path = os.path.join(result_folder, file_name)
 
     # Crea il grafo, se non si settano gli archi vengono scelti random
-    graph = create_simple_connected_graph(300)
+    graph = create_simple_connected_graph(100)
 
     # Salva il grafo
     save_graph_to_csv(graph, file_path)
