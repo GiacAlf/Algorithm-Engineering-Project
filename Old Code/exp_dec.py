@@ -1,7 +1,7 @@
 import networkit as nk
 from Graphs.graph_loader import GraphLoader
-from Saranurak_algorithm.Sub_algorithms.calculate_delta import calculate_delta
-from Saranurak_algorithm.Sub_algorithms.high_node_degree import find_most_connected_node
+from Saranurak_algorithm.Utility_algorithms.high_degree_node import find_most_connected_node
+from Saranurak_algorithm.Utility_algorithms.calculate_delta import DeltaCalculator
 
 """
 class ExpanderDecomposition:
@@ -43,7 +43,9 @@ class ExpanderDecomposition:
 
 if __name__ == '__main__':
     # Carica il grafo
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../Graphs/generated_graphs/generated_graph.csv'
+
+    # Carica il grafo dal file
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
@@ -52,8 +54,8 @@ if __name__ == '__main__':
     num_edges = graph.numberOfEdges()
     print(f"Grafo caricato con {num_nodes} nodi e {num_edges} archi")
 
-    # Calcola delta (minimo grado) per il grafo
-    delta = calculate_delta(graph)
+    delta_calculator = DeltaCalculator(graph)
+    delta = delta_calculator.calculate_delta()
     print(f"Delta (minimo grado) del grafo: {delta}")
 
     # Calcola phi come 40/delta, se delta è maggiore di zero

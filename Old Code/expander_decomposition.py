@@ -16,7 +16,7 @@ class ExpanderDecomposition:
 
 if __name__ == '__main__':
     # loads the graph
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
