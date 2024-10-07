@@ -107,7 +107,7 @@ def compute_expander_decomposition(G, phi):
         phi: Parameter for decomposition.
 
     Returns:
-        ExpanderDecomp: List of expander decompositions.
+        ExpanderDecomp: List of expander.pyx decompositions.
     """
     active = {tuple(G)}  # Initialize with the whole graph
     expander_decomp = []
@@ -123,11 +123,11 @@ def compute_expander_decomposition(G, phi):
             S, V_minus_S = result
             active.update({tuple(S), tuple(V_minus_S)})
         else:
-            # If G[X] is a ϕ-expander
+            # If G[X] is a ϕ-expander.pyx
             expander_decomp.append(X)
             # If unbalanced sparse cut
             S_trimmed = trim(X, S, 6 * phi)
-            expander_decomp.append(V_minus_S)  # Add the ϕ-expander
+            expander_decomp.append(V_minus_S)  # Add the ϕ-expander.pyx
 
     return expander_decomp
 
@@ -142,7 +142,7 @@ def test_expander_decomposition():
         3: [1, 4],
         4: [3]
     }
-    phi = 0.5  # Example parameter for expander decomposition
+    phi = 0.5  # Example parameter for expander.pyx decomposition
     expander_decomp = compute_expander_decomposition(G, phi)
     print("Expander Decomposition:", expander_decomp)
 

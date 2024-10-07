@@ -35,7 +35,7 @@ def contract_high_degree_nodes(G, degree_threshold):
 
 def expander(G, phi):
     """
-    Implements the expander decomposition algorithm.
+    Implements the expander.pyx decomposition algorithm.
 
     Args:
         G: A networkx graph.
@@ -69,7 +69,7 @@ def expander(G, phi):
 
 
 if __name__ == '__main__':
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     # Set the expansion parameter (adjust as needed)
     phi = 0.1
 
-    # Run the expander algorithm
+    # Run the expander.pyx algorithm
     partition = expander(graph, phi)
 
     # Print some information about the partition (optional)

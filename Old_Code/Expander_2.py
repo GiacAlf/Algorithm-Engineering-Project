@@ -45,7 +45,7 @@ def check_expansion(G, S, phi):
     return edge_cut / min(vol_S, vol_complement) >= phi
 
 
-# Algoritmo principale di expander decomposition
+# Algoritmo principale di expander.pyx decomposition
 def expander_decomposition(G, phi):
     # Trova un taglio bilanciato che rispetta la proprietà di espansione
     cut = balanced_cut(G, phi)

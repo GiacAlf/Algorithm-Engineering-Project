@@ -71,6 +71,6 @@ if __name__ == '__main__':
     start_node = find_most_connected_node(graph)
     print(f"Il nodo più connesso è: {start_node}")
 
-    # Esecuzione della decomposizione expander con phi parametrizzato
+    # Esecuzione della decomposizione expander.pyx con phi parametrizzato
     expander = ExpanderDecomposition(graph, phi, start_node)
     partition = expander.run()
