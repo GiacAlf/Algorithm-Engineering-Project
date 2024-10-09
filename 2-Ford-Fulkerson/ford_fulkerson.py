@@ -12,8 +12,11 @@ def ford_fulkerson_min_cut(G):
     # Calcola il valore del cut per ogni coppia di nodi
     for i in range(len(nodes)):
         for j in range(i + 1, len(nodes)):
-            # Usa la funzione maximum_flow senza specificare flow_func
-            flow_value, _ = nx.maximum_flow(G, nodes[i], nodes[j])
+            # Usa la funzione maximum_flow e cattura il flusso massimo
+            flow_dict = nx.maximum_flow(G, nodes[i], nodes[j], capacity='capacity')
+            print(f"Flow result for nodes {nodes[i]} and {nodes[j]}: {flow_dict}")  # Debug: mostra il risultato
+            flow_value = flow_dict[0]  # flusso massimo
+            print(f"Flow value between {nodes[i]} and {nodes[j]}: {flow_value}")  # Stampa il flusso massimo
             min_cut_value = min(min_cut_value, flow_value)
 
     return min_cut_value
@@ -23,7 +26,30 @@ def ford_fulkerson_min_cut(G):
 if __name__ == '__main__':
     try:
         # Path del file CSV contenente il grafo
-        file_path = '../Graphs/generated_graphs/generated_graph.csv'
+        file_path = '../Graphs/generated_graphs/generated_graph_with_weights.csv'
+        loader = GraphLoader(file_path)
+
+        # Carica il grafo dal CSV con capacità
+        graph = loader.load_graph_from_csv_with_capacity(True)
+
+        # Mostra informazioni di base sul grafo caricato
+        print(f"Graph loaded with {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges.")
+
+        # Calcola e stampa il valore del minimum cut
+        min_cut = ford_fulkerson_min_cut(graph)
+        print(f"Ford-Fulkerson edge connectivity value is: {min_cut}")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+"""
+
+# Main per leggere il grafo dal CSV e calcolare il cut minimo
+if __name__ == '__main__':
+    try:
+        # Path del file CSV contenente il grafo
+        file_path = '../Graphs/generated_graphs/generated_graph_with_weights.csv'
         loader = GraphLoader(file_path)
 
         # Carica il grafo dal CSV
@@ -38,7 +64,7 @@ if __name__ == '__main__':
 
     except Exception as e:
         print(f"Error: {e}")
-
+"""
 """
 # Esempio di utilizzo
 if __name__ == "__main__":

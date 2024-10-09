@@ -31,15 +31,20 @@ class GraphLoader:
                     G.addEdge(u, v)
             return G
 
+    """
+    This function is used with Ford-Fulkerson that needs capacity to work.
+    Now, for the edge connectivity purpose with unweighted graphs, is hard set to 1
+    The graph can be loaded in a NetroKit or NetworkX way
+    """
     def load_graph_from_csv_with_capacity(self, use_networkx=True):
-        """Carica un grafo e assegna una capacità predefinita di 1 a ciascun arco."""
+        # Carica un grafo e assegna la capacità specificata in CSV a ciascun arco
         if use_networkx:
             G = nx.Graph()  # Crea un grafo NetworkX
             with open(self.file_path, mode='r') as file:
                 reader = csv.reader(file)
                 for row in reader:
-                    u, v = map(int, row)
-                    G.add_edge(u, v, capacity=1)  # Aggiungi capacità predefinita di 1
+                    u, v, capacity = map(int, row)  # Assicurati che ci siano tre colonne
+                    G.add_edge(u, v, capacity=capacity)  # Aggiungi capacità specificata
             return G
         else:
             G = nk.Graph()  # Usa NetworKit senza capacità
@@ -51,6 +56,33 @@ class GraphLoader:
                         G.addNode()
                     G.addEdge(u, v)  # Nessuna capacità, NetworKit non la supporta direttamente
             return G
+
+    """
+    This function is used with Stoer-Wagner that needs weight to work.
+    Now, for the edge connectivity purpose with unweighted graphs, is hard set to 1
+    The graph can be loaded in a NetroKit or NetworkX way
+    """
+    def load_graph_from_csv_with_weight(self, use_networkx=True):
+        """Carica un grafo e assegna un peso predefinito di 1 a ciascun arco."""
+        if use_networkx:
+            G = nx.Graph()  # Crea un grafo NetworkX
+            with open(self.file_path, mode='r') as file:
+                reader = csv.reader(file)
+                for row in reader:
+                    u, v, weight = map(int, row)
+                    G.add_weighted_edges_from([(u, v, weight)])  # Aggiungi peso predefinito di 1
+            return G
+        else:
+            G = nk.Graph()  # Usa NetworKit
+            with open(self.file_path, mode='r') as file:
+                reader = csv.reader(file)
+                for row in reader:
+                    u, v = map(int, row)
+                    while G.numberOfNodes() <= max(u, v):
+                        G.addNode()
+                    G.addEdge(u, v)
+            return G
+
 
     """
     def load_graph_from_csv(self):

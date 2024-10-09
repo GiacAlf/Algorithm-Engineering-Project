@@ -32,12 +32,12 @@ def stoer_wagner_edge_connectivity(graph):
 
 if __name__ == '__main__':
     # Carica il grafo dal file CSV
-    file_path = '../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
     # Assicurati che il grafo caricato non sia vuoto
-    assert graph.numberOfNodes() > 0, "Il grafo caricato è vuoto."
+    assert graph.number_of_nodes() > 0, "Il grafo caricato è vuoto."
 
     # Calcola la connettività degli archi
     k = stoer_wagner_edge_connectivity(graph)
