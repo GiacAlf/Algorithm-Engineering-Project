@@ -4,7 +4,7 @@ from scipy.sparse.linalg import cg, LinearOperator, spilu
 from scipy.sparse import csr_matrix
 import multiprocessing as mp
 
-from Graphs.simple_connected_graph_generator import create_simple_connected_graph
+from Old_Code.simple_connected_graph_generator import create_simple_connected_graph
 
 
 # Precondizionatore tramite incomplete Cholesky decomposition

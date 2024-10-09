@@ -2,7 +2,7 @@ import math
 import networkx as nx
 import random
 
-from Graphs.simple_connected_graph_generator import create_simple_connected_graph
+from Old_Code.simple_connected_graph_generator import create_simple_connected_graph
 
 
 def calculate_conductance(graph, subset):
