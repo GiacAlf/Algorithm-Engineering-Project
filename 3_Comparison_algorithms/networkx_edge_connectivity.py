@@ -1,12 +1,5 @@
-import csv
-import os
 import networkx as nx
-
 from Graphs.graph_loader import GraphLoader
-
-# import pdb
-
-
 
 
 if __name__ == '__main__':

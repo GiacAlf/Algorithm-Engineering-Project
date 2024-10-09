@@ -117,7 +117,6 @@ if __name__ == '__main__':
         num_edges = input("Enter the number of edges (leave blank for default): ")
         num_edges = int(num_edges) if num_edges else None
 
-
         # Create the connected simple random graph
         G = create_connected_simple_random_graph(num_nodes, num_edges)
 
@@ -130,7 +129,6 @@ if __name__ == '__main__':
 
         # Save the graph to CSV
         save_graph_to_csv(G, 'generated_graphs/generated_graph.csv')
-
 
         # Create the connected simple random graph with weights
         G_with_weights = create_connected_simple_random_graph_with_weights(num_nodes, num_edges, 1)
