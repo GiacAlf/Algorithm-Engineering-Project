@@ -3,7 +3,7 @@ import random
 
 from Graphs.graph_plot import plot_graph, convert_to_networkx
 from Old_Code.My_Expander_Decomposition.GraphLoader import load_graph_from_csv
-from Graphs.nk_simple_connected_graph_generator import create_connected_simple_random_graph
+from Graphs.nx_simple_connected_graph_generator import create_connected_simple_random_graph
 
 
 def trim(A, graph, degree_threshold=2):

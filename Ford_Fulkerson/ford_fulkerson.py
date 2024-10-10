@@ -49,7 +49,7 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     try:
         # Path del file CSV contenente il grafo
-        file_path = '../Graphs/generated_graphs/generated_graph_with_weights.csv'
+        file_path = '../Test Graphs/generated_graphs/generated_graph_with_weights.csv'
         loader = GraphLoader(file_path)
 
         # Carica il grafo dal CSV
