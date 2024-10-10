@@ -119,6 +119,9 @@ def run_networkx_edge_connectivity_on_graphs(input_dir, output_file):
     df['num_nodes'] = df['file_name'].apply(lambda x: int(x.split('_')[0]))
     df = df.sort_values(by='num_nodes')
 
+    # salva sul file anche il numero degli archi che equivalgono al numero di righe del file
+    df['num_edges'] = df['file_name'].apply(lambda x: int(x.split('_')[1].split('.')[0]))
+
     # Salva i risultati in un file CSV
     df.to_csv(output_file, index=False)
     print(f"Results saved to {output_file}")
@@ -128,11 +131,11 @@ if __name__ == '__main__':
 
     input_dir = 'Graphs/generated_graphs'  # Directory dove sono salvati i grafi
 
-    output_file = 'stoer_wagner_results.csv'  # Nome del file CSV di output
+    output_file = './Results/stoer_wagner_results.csv'  # Nome del file CSV di output
     run_stoer_wagner_on_graphs(input_dir, output_file)
 
-    output_file = 'ford_fulkerson_results.csv'  # Nome del file CSV di output
+    output_file = './Results/ford_fulkerson_results.csv'  # Nome del file CSV di output
     run_ford_fulkerson_on_graphs(input_dir, output_file)
 
-    output_file = 'networkx_edge_connectivity_results.csv'  # Nome del file CSV di output
+    output_file = './Results/networkx_edge_connectivity_results.csv'  # Nome del file CSV di output
     run_networkx_edge_connectivity_on_graphs(input_dir, output_file)

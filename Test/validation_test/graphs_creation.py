@@ -26,8 +26,8 @@ def generate_and_save_graphs(nodes_list, output_dir):
 if __name__ == '__main__':
     # Parametri di configurazione
     num_graphs = 20  # Numero totale di grafi da generare
-    start_nodes = 5  # Nodi di partenza per ogni grafo
-    step = 3  # Passo di incremento per ogni grafo
+    start_nodes = 10  # Nodi di partenza per ogni grafo
+    step = 10  # Passo di incremento per ogni grafo
     max_nodes = start_nodes + (num_graphs-1) * step
     nodes_list = [i for i in range(start_nodes, max_nodes, step)]  # Lista di numeri di nodi (es. 5, 6, ..., 14)
     output_dir = 'Graphs/generated_graphs'  # Directory di output
