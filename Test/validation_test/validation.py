@@ -129,13 +129,14 @@ def run_networkx_edge_connectivity_on_graphs(input_dir, output_file):
 
 if __name__ == '__main__':
 
-    input_dir = 'Graphs/generated_graphs'  # Directory dove sono salvati i grafi
+    input_dir = 'Graphs/generated_graphs'  # Directory dove sono i grafi di input
 
-    output_file = './Results/stoer_wagner_results.csv'  # Nome del file CSV di output
+    # comparison algorithm
+    output_file = './Results/networkx_edge_connectivity_results.csv'
+    run_networkx_edge_connectivity_on_graphs(input_dir, output_file)
+
+    output_file = './Results/stoer_wagner_results.csv'
     run_stoer_wagner_on_graphs(input_dir, output_file)
 
-    output_file = './Results/ford_fulkerson_results.csv'  # Nome del file CSV di output
+    output_file = './Results/ford_fulkerson_results.csv'
     run_ford_fulkerson_on_graphs(input_dir, output_file)
-
-    output_file = './Results/networkx_edge_connectivity_results.csv'  # Nome del file CSV di output
-    run_networkx_edge_connectivity_on_graphs(input_dir, output_file)
