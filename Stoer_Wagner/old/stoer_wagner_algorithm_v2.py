@@ -5,7 +5,7 @@ from Graphs.graph_loader import GraphLoader
 
 def stoer_wagner_edge_connectivity(graph):
     """
-    Calcola la connettività degli archi usando l'algoritmo di 1_Stoer_Wagner.
+    Calcola la connettività degli archi usando l'algoritmo di Stoer_Wagner.
 
     :param graph: Il grafo di Networkit da cui calcolare la connettività degli archi.
     :return: Il valore del cut minimo.
@@ -24,7 +24,7 @@ def stoer_wagner_edge_connectivity(graph):
     # Assert che il grafo ha almeno due nodi per calcolare la connettività
     assert g_nx.number_of_nodes() > 1, "Il grafo deve avere almeno due nodi per calcolare la connettività."
 
-    # Calcola il cut minimo usando l'algoritmo di 1_Stoer_Wagner
+    # Calcola il cut minimo usando l'algoritmo di Stoer_Wagner
     min_cut_value, partition = nx.stoer_wagner(g_nx)
 
     return min_cut_value

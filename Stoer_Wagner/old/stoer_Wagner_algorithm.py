@@ -15,7 +15,7 @@ def stoer_wagner_edge_connectivity(graph):
     for edge in graph.iterEdges():
         g_nx.add_edge(edge[0], edge[1])
 
-    # Calcola il cut minimo usando l'algoritmo di 1_Stoer_Wagner
+    # Calcola il cut minimo usando l'algoritmo di Stoer_Wagner
     min_cut_value, partition = nx.stoer_wagner(g_nx)
 
     return min_cut_value
