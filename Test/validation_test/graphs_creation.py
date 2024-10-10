@@ -10,7 +10,7 @@ def generate_and_save_graphs(nodes_list, output_dir):
     for num_nodes in nodes_list:
         print(f"Generating graph with {num_nodes} nodes...")
         # Genera il grafo (modifica questa parte in base al tuo generatore)
-        graph = create_connected_simple_random_graph_with_weights(num_nodes)
+        graph = create_connected_simple_random_graph_with_weights(num_nodes, num_edges=None, fixed_weight=1)
 
         # Converti il grafo in un DataFrame per salvare in CSV
         edges = [(u, v, data['weight']) for u, v, data in graph.edges(data=True)]
@@ -18,7 +18,7 @@ def generate_and_save_graphs(nodes_list, output_dir):
 
         # Salva il grafo in un file CSV
         output_file = os.path.join(output_dir, f"{num_nodes}_nodes.csv")
-        df.to_csv(output_file, index=False)
+        df.to_csv(output_file, index=False, header=False)
         print(f"Saved graph with {num_nodes} nodes to {output_file}")
 
 
