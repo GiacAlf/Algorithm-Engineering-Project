@@ -15,7 +15,7 @@ class VolumeCalculator:
 
 if __name__ == '__main__':
     # Path del file CSV generato
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../Graphs/generated_graphs/generated_graph.csv'
 
     # Carica il grafo dal file
     loader = GraphLoader(file_path)

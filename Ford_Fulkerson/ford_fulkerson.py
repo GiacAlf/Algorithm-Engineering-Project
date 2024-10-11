@@ -1,89 +1,63 @@
+"""
+This script is used to run the Ford-Fulkerson algorithm on a given graph
+the time complexity of this implementation is O(n^7)
+"""
+
 import networkx as nx
 from Graphs.graph_loader import GraphLoader
 
 
 def ford_fulkerson_min_cut(G):
-    # Trova i nodi del grafo
+    # nodes of G
     nodes = list(G.nodes)
 
-    # Inizializza il valore del cut minimo
+    # initialize minimum cut value
     min_cut_value = float('inf')
 
-    # Calcola il valore del cut per ogni coppia di nodi
+    # cut value for each pair of nodes
     for i in range(len(nodes)):
         for j in range(i + 1, len(nodes)):
-            # Usa la funzione maximum_flow e cattura il flusso massimo
+            # uses maximum flow algorithm to find maximum flow
             flow_dict = nx.maximum_flow(G, nodes[i], nodes[j], capacity='capacity')
-            print(f"Flow result for nodes {nodes[i]} and {nodes[j]}: {flow_dict}")  # Debug: mostra il risultato
-            flow_value = flow_dict[0]  # flusso massimo
-            print(f"Flow value between {nodes[i]} and {nodes[j]}: {flow_value}")  # Stampa il flusso massimo
+
+            print(f"Flow result for nodes {nodes[i]} and {nodes[j]}: {flow_dict}")
+
+            # maximum flow value
+            flow_value = flow_dict[0]
+
+            print(f"Flow value between {nodes[i]} and {nodes[j]}: {flow_value}")
+
             min_cut_value = min(min_cut_value, flow_value)
 
     return min_cut_value
 
 
-# Main per leggere il grafo dal CSV e calcolare il cut minimo
 if __name__ == '__main__':
+
+    """ FOR TESTING PURPOSES """
+
     try:
-        # Path del file CSV contenente il grafo
+        # input directory for generated graphs
         file_path = '../Graphs/generated_graphs/generated_graph_with_weights.csv'
         loader = GraphLoader(file_path)
 
-        # Carica il grafo dal CSV con capacità
-        graph = loader.load_graph_from_csv_with_capacity(True)
+        # load the graph from the CSV file
+        graph = loader.load_graph_from_csv_with_capacity(use_networkx=True)
 
-        # Mostra informazioni di base sul grafo caricato
+        # assert that the graph is not empty
+        assert graph.number_of_nodes() > 0, "The graph must have at least one node"
+
+        # Check for isolated nodes
+        assert all(graph.degree(node) > 0 for node in graph.nodes()), "The graph contains isolated nodes"
+
+        # print the number of nodes and edges
         print(f"Graph loaded with {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges.")
 
-        # Calcola e stampa il valore del minimum cut
+        # min cut value
         min_cut = ford_fulkerson_min_cut(graph)
+
+        # print the min cut value
         print(f"Ford-Fulkerson edge connectivity value is: {min_cut}")
 
     except Exception as e:
         print(f"Error: {e}")
-
-
-"""
-
-# Main per leggere il grafo dal CSV e calcolare il cut minimo
-if __name__ == '__main__':
-    try:
-        # Path del file CSV contenente il grafo
-        file_path = '../Test Graphs/generated_graphs/generated_graph_with_weights.csv'
-        loader = GraphLoader(file_path)
-
-        # Carica il grafo dal CSV
-        graph = loader.load_graph_from_csv_with_capacity(True)
-
-        # Mostra informazioni di base sul grafo caricato
-        print(f"Graph loaded with {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges.")
-
-        # Calcola e stampa il valore del minimo cut
-        min_cut = ford_fulkerson_min_cut(graph)
-        print(f"The Ford-Fulkerson edge connectivity value of the graph is: {min_cut}")
-
-    except Exception as e:
-        print(f"Error: {e}")
-"""
-"""
-# Esempio di utilizzo
-if __name__ == "__main__":
-    # Crea un grafo di esempio
-    G = nx.Graph()
-    G.add_edges_from([
-        (0, 1, {'capacity': 1}),
-        (0, 2, {'capacity': 1}),
-        (1, 2, {'capacity': 1}),
-        (1, 3, {'capacity': 1}),
-        (2, 1, {'capacity': 1}),
-        (2, 4, {'capacity': 1}),
-        (3, 2, {'capacity': 1}),
-        (3, 5, {'capacity': 1}),
-        (4, 3, {'capacity': 1}),
-        (4, 5, {'capacity': 1}),
-    ])
-
-    # Calcola il valore del minimum cut
-    min_cut_value = ford_fulkerson_min_cut(G)
-    print("Valore del minimum cut:", min_cut_value)
-"""

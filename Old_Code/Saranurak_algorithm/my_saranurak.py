@@ -1,9 +1,9 @@
 from Graphs.graph_loader import GraphLoader
 import networkx as nx
-from Saranurak_algorithm.Sub_algorithms.Gabow import Gabow
+from Old_Code.Saranurak_algorithm.Sub_algorithms.Gabow import Gabow
 from Saranurak_algorithm.Sub_algorithms.My_Expander_Decomposition.MyExpander import ExpanderDecomposition
-from Saranurak_algorithm.Sub_algorithms.Shave import Shave
-from Saranurak_algorithm.Sub_algorithms.Trim import Trim
+from Old_Code.Saranurak_algorithm.Sub_algorithms.Shave import Shave
+from Old_Code.Saranurak_algorithm.Sub_algorithms.Trim import Trim
 
 
 class EdgeConnectivity:
@@ -51,7 +51,7 @@ class EdgeConnectivity:
 
 if __name__ == "__main__":
     # Load the graph from CSV
-    file_path = '../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

@@ -1,24 +1,37 @@
+"""
+This script is used to calculate the edge connectivity of a given graph using the built-in function in NetworkX
+"""
+
 import networkx as nx
 from Graphs.graph_loader import GraphLoader
 
 
 if __name__ == '__main__':
-    file_path = '../Graphs/generated_graphs/generated_graph_with_weights.csv'  # Path to your CSV file
 
-    # pdb.set_trace()
-    # Load the graph from the CSV file
-    loader = GraphLoader(file_path)
+    """ FOR TESTING PURPOSES """
 
-    # Carica il grafo dal CSV con capacità predefinita di 1
-    graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
+    try:
+        # input directory for generated graphs
+        file_path = '../Graphs/generated_graphs/generated_graph_with_weights.csv'  # Path to your CSV file
+        loader = GraphLoader(file_path)
 
-    # Assert that the graph is not empty
-    assert graph.number_of_nodes() > 0, "The graph must have at least one node"
+        # load the graph from the CSV file with weights equal to 1
+        graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
 
-    # Check for isolated nodes
-    assert all(graph.degree(node) > 0 for node in graph.nodes()), "The graph contains isolated nodes"
+        # Assert that the graph is not empty
+        assert graph.number_of_nodes() > 0, "The graph must have at least one node"
 
-    # Calculate edge connectivity using networkx
-    edge_connectivity = nx.edge_connectivity(graph)
+        # Check for isolated nodes
+        assert all(graph.degree(node) > 0 for node in graph.nodes()), "The graph contains isolated nodes"
 
-    print(f"NetworkX edge connectivity value is: {edge_connectivity}")
+        # print the number of nodes and edges
+        print(f"Graph loaded with {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges.")
+
+        # Calculate edge connectivity using networkx
+        edge_connectivity = nx.edge_connectivity(graph)
+
+        # print the edge connectivity
+        print(f"NetworkX edge connectivity value is: {edge_connectivity}")
+
+    except Exception as e:
+        print(f"Error: {e}")

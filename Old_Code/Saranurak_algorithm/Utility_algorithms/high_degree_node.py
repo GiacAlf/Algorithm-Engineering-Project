@@ -16,7 +16,7 @@ def find_most_connected_node(graph):
 
 if __name__ == '__main__':
     # Carica il grafo
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../Graphs/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

@@ -1,7 +1,7 @@
 import networkit as nk
 from Graphs.graph_loader import GraphLoader
-from Saranurak_algorithm.Utility_algorithms.high_degree_node import find_most_connected_node
-from Saranurak_algorithm.Utility_algorithms.calculate_delta import DeltaCalculator
+from Old_Code.Saranurak_algorithm.Utility_algorithms.high_degree_node import find_most_connected_node
+from Old_Code.Saranurak_algorithm.Utility_algorithms.calculate_delta import DeltaCalculator
 
 """
 class ExpanderDecomposition:

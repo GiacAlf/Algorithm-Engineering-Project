@@ -1,8 +1,9 @@
 """
 This script is used to validate the Stoer-Wagner algorithm and the Ford-Fulkerson algorithm
- compared to NetworkX edge connectivity algorithm on the generated graphs created by
+ compared to NetworkX edge connectivity algorithm on the generated simple undirected graphs created by
  generated_graphs_creator.py stored in Test Graphs/generated_graphs.
-The script runs all the algorithms and saves their results in the Results/generated_graphs in a CSV file.
+The script runs all the algorithms and saves their results in the Results/generated_graphs in a CSV file only
+if the check about simple graphs is true.
 """
 
 import os
@@ -152,21 +153,76 @@ def run_networkx_edge_connectivity_on_graphs(input_dir, output_file):
     print(f"Results saved to {output_file}")
 
 
+# function that checks if the graph is simple and undirected
+def is_simple_undirected_graph(G):
+    # verifies if the graph is directed
+    if G.is_directed():
+        print("Il grafo è orientato.")
+        return False
+
+    # verifies if the graph contains loops
+    if any(G.has_edge(n, n) for n in G.nodes):
+        print("Il grafo contiene dei loop.")
+        return False
+
+    # verifies if the graph contains multiple edges between the two same nodes
+    if isinstance(G, nx.MultiGraph):
+        for u, v in G.edges:
+            if G.number_of_edges(u, v) > 1:
+                print(f"Il grafo ha archi multipli tra {u} e {v}.")
+                return False
+
+    print("Il grafo è semplice e non orientato.")
+    return True
+
+
+# function that checks if all the graphs in the input directory are simple and undirected
+def check_all_graphs_simple(input_dir):
+
+    for graph_file in os.listdir(input_dir):
+        if graph_file.endswith('.csv'):
+            graph_path = os.path.join(input_dir, graph_file)
+            print(f"Verifica del grafo {graph_file}...")
+
+            # loads the graph
+            loader = GraphLoader(graph_path)
+            graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
+
+            # verifies if the graph is simple and undirected
+            if not is_simple_undirected_graph(graph):
+                print(f"Grafo {graph_file} non è semplice e non orientato. Interruzione.")
+                return False
+
+    print("Tutti i grafi sono semplici e non orientati.")
+    return True
+
+
 if __name__ == '__main__':
 
     """ GENERATED GRAPHS VALIDATION TESTS """
+    try:
 
-    # input directory for generated graphs
-    input_dir = 'Test Graphs/generated_graphs'  # Directory dove sono i grafi di input
+        # input directory for generated graphs
+        input_dir = 'Test Graphs/generated_graphs'
 
-    # networkx edge connectivity algorithm run
-    output_file = 'Results/generated_graphs/networkx_edge_connectivity_results.csv'
-    run_networkx_edge_connectivity_on_graphs(input_dir, output_file)
+        # checks if all the graphs in the input directory are simple and undirected
+        if check_all_graphs_simple(input_dir):
+            print("All input graphs are simple and undirected. Running algorithms...")
 
-    # stoer-wagner algorithm run
-    output_file = 'Results/generated_graphs/stoer_wagner_results.csv'
-    run_stoer_wagner_on_graphs(input_dir, output_file)
+            # networkx edge connectivity algorithm run
+            output_file = 'Results/generated_graphs/networkx_edge_connectivity_results.csv'
+            run_networkx_edge_connectivity_on_graphs(input_dir, output_file)
 
-    # ford-fulkerson algorithm run
-    output_file = 'Results/generated_graphs/ford_fulkerson_results.csv'
-    run_ford_fulkerson_on_graphs(input_dir, output_file)
+            # stoer-wagner algorithm run
+            output_file = 'Results/generated_graphs/stoer_wagner_results.csv'
+            run_stoer_wagner_on_graphs(input_dir, output_file)
+
+            # ford-fulkerson algorithm run
+            output_file = 'Results/generated_graphs/ford_fulkerson_results.csv'
+            run_ford_fulkerson_on_graphs(input_dir, output_file)
+
+        else:
+            print("Not all input graphs are simple and undirected. Execution aborted.")
+
+    except Exception as e:
+        print(f"Error: {e}")

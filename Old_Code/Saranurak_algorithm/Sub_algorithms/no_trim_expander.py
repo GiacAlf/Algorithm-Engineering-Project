@@ -66,7 +66,7 @@ class ExpanderDecomposition:
 
 # Esempio di utilizzo
 if __name__ == "__main__":
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../Graphs/generated_graphs/generated_graph.csv'
     G = load_graph_from_csv(file_path)
 
     G_nx = convert_to_networkx(G)

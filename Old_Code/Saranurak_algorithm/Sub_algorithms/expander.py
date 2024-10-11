@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # G = create_connected_simple_random_graph(num_nodes, num_edges)
 
     # Load the graph from CSV
-    file_path = '../../Graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../Graphs/generated_graphs/generated_graph.csv'
     G = load_graph_from_csv(file_path)
 
     # Stampa il grafo caricato a terminale
