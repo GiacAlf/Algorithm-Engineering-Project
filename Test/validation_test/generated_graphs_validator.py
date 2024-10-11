@@ -172,28 +172,54 @@ def is_simple_undirected_graph(G):
                 print(f"Il grafo ha archi multipli tra {u} e {v}.")
                 return False
 
-    print("Il grafo è semplice e non orientato.")
+    print("The graph is simple and undirected.")
     return True
 
 
-# function that checks if all the graphs in the input directory are simple and undirected
-def check_all_graphs_simple(input_dir):
+# function that checks if the graph contains at least one node
+def is_not_empty_graph(graph):
+    if graph.number_of_nodes() > 0:
+        print(f"The graph is not empty.")
+        return True
+    return False
+
+
+# function that checks if the graph contains isolated nodes
+def is_not_isolated_graph(graph):
+    if all(graph.degree(node) > 0 for node in graph.nodes()):
+        print(f"The graph is not isolated.")
+        return True
+    return False
+
+
+# function that checks if all the graphs in the input directory are: simple and undirected, not empty and not isolated
+def check_all_graphs(input_dir):
 
     for graph_file in os.listdir(input_dir):
         if graph_file.endswith('.csv'):
             graph_path = os.path.join(input_dir, graph_file)
-            print(f"Verifica del grafo {graph_file}...")
+            print(f"\nVerifying graph {graph_file}...")
 
             # loads the graph
             loader = GraphLoader(graph_path)
             graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
 
+            print(f"Graph loaded has {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges.")
+
             # verifies if the graph is simple and undirected
             if not is_simple_undirected_graph(graph):
-                print(f"Grafo {graph_file} non è semplice e non orientato. Interruzione.")
+                print(f"Graph {graph_file} is not simple and undirected. Interruption.")
                 return False
 
-    print("Tutti i grafi sono semplici e non orientati.")
+            if not is_not_empty_graph(graph):
+                print(f"Graph {graph_file} is empty. Interruption.")
+                return False
+
+            if not is_not_isolated_graph(graph):
+                print(f"Graph {graph_file} contains isolated nodes. Interruption.")
+                return False
+
+    print("\nAll checks passed.")
     return True
 
 
@@ -206,8 +232,8 @@ if __name__ == '__main__':
         input_dir = 'Test Graphs/generated_graphs'
 
         # checks if all the graphs in the input directory are simple and undirected
-        if check_all_graphs_simple(input_dir):
-            print("All input graphs are simple and undirected. Running algorithms...")
+        if check_all_graphs(input_dir):
+            print("\nAll input graphs are simple and undirected, not empty and not isolated. Running algorithms...")
 
             # networkx edge connectivity algorithm run
             output_file = 'Results/generated_graphs/networkx_edge_connectivity_results.csv'
