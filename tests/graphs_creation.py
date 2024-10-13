@@ -10,7 +10,7 @@ from graphs_utility_functions.nx_simple_connected_graph_generator import create_
 
 
 def generate_and_save_graphs(nodes_list, edge_list, output_dir):
-    # cretes the output directory if it doesn't exist
+    # creates the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
     # node_list nad edge_list must have the same length, otherwise edges will be selected randomly

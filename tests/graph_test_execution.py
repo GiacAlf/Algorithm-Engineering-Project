@@ -55,7 +55,7 @@ def run_stoer_wagner_on_graphs(input_dir, output_file):
 
     # extract the number of nodes from the file names
     df['num_nodes'] = df['file_name'].apply(lambda x: int(x.split('_')[0]))
-    df = df.sort_values(by='num_nodes')
+    df = df.sort_values(by=['num_nodes', 'num_edges'])
 
     # saves the dataframe to the output file
     df.to_csv(output_file, index=False)
@@ -101,7 +101,7 @@ def run_ford_fulkerson_on_graphs(input_dir, output_file):
 
     # extract the number of nodes from the file names
     df['num_nodes'] = df['file_name'].apply(lambda x: int(x.split('_')[0]))
-    df = df.sort_values(by='num_nodes')
+    df = df.sort_values(by=['num_nodes', 'num_edges'])
 
     # saves the dataframe to the output file
     df.to_csv(output_file, index=False)
@@ -147,7 +147,7 @@ def run_networkx_edge_connectivity_on_graphs(input_dir, output_file):
 
     # extract the number of nodes from the file names
     df['num_nodes'] = df['file_name'].apply(lambda x: int(x.split('_')[0]))
-    df = df.sort_values(by='num_nodes')
+    df = df.sort_values(by=['num_nodes', 'num_edges'])
 
     # saves the dataframe to the output file
     df.to_csv(output_file, index=False)
