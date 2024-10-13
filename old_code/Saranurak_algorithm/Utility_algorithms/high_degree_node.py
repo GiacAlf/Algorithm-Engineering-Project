@@ -1,4 +1,4 @@
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 def find_most_connected_node(graph):
@@ -16,7 +16,7 @@ def find_most_connected_node(graph):
 
 if __name__ == '__main__':
     # Carica il grafo
-    file_path = '../../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../graphs_utility_functions/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

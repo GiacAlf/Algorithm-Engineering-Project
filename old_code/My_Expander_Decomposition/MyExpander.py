@@ -57,7 +57,7 @@ class ExpanderDecomposition:
 # Resto del codice principale rimane invariato
 
 if __name__ == "__main__":
-    file_path = '../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../graphs_utility_functions/generated_graphs/generated_graph.csv'
 
     # Load the graph from CSV (presuppone che la funzione carichi in Networkit)
     graph = load_graph_from_csv(file_path)

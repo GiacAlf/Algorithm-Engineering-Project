@@ -32,7 +32,7 @@ def cut_matching_game(G, phi, c):
         A tuple (S, V \ S) or a result indicating the cut.
     """
     T = 10  # Number of iterations (can be adjusted)
-    M_list = []  # Store graphs
+    M_list = []  # Store graphs_utility_functions
 
     for t in range(1, T + 1):
         S, V_minus_S = find_bipartition(G, M_list)
@@ -61,7 +61,7 @@ def find_bipartition(A, M_list):
 
     Args:
         A: The set of vertices.
-        M_list: List of previous graphs M1, M2, ..., Mt−1.
+        M_list: List of previous graphs_utility_functions M1, M2, ..., Mt−1.
 
     Returns:
         A tuple (S, V \ S), where S is the set of vertices and V \ S is its complement.

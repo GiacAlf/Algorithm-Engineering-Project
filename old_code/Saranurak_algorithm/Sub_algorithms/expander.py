@@ -1,9 +1,9 @@
 import networkx as nx
 import random
 
-from graphs.graph_plot import plot_graph, convert_to_networkx
+from graphs_utility_functions.graph_plot import plot_graph, convert_to_networkx
 from old_code.My_Expander_Decomposition.GraphLoader import load_graph_from_csv
-from graphs.nx_simple_connected_graph_generator import create_connected_simple_random_graph
+from graphs_utility_functions.nx_simple_connected_graph_generator import create_connected_simple_random_graph
 
 
 def trim(A, graph, degree_threshold=2):
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # G = create_connected_simple_random_graph(num_nodes, num_edges)
 
     # Load the graph from CSV
-    file_path = '../../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../graphs_utility_functions/generated_graphs/generated_graph.csv'
     G = load_graph_from_csv(file_path)
 
     # Stampa il grafo caricato a terminale

@@ -6,7 +6,7 @@ The randomness of the number of edges can be set either by giving edge_list = []
 
 import os
 import pandas as pd
-from graphs.nx_simple_connected_graph_generator import create_connected_simple_random_graph_with_weights
+from graphs_utility_functions.nx_simple_connected_graph_generator import create_connected_simple_random_graph_with_weights
 
 
 def generate_and_save_graphs(nodes_list, edge_list, output_dir):

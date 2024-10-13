@@ -1,4 +1,4 @@
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 # calcola il volume del grafo, ossia la sommatoria di tutti i gradi di tutti i vertici in V
@@ -15,7 +15,7 @@ class VolumeCalculator:
 
 if __name__ == '__main__':
     # Path del file CSV generato
-    file_path = '../../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../graphs_utility_functions/generated_graphs/generated_graph.csv'
 
     # Carica il grafo dal file
     loader = GraphLoader(file_path)

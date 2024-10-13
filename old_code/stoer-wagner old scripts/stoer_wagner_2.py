@@ -1,7 +1,7 @@
 import numpy as np
 import networkx as nx
 
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 def stoer_wagner(graph):
@@ -62,7 +62,7 @@ def stoer_wagner(graph):
 
 # Esempio di utilizzo con il tuo GraphLoader
 if __name__ == '__main__':
-    file_path = '../../graphs/generated_graphs/generated_graph_with_weights.csv'
+    file_path = '../../graphs_utility_functions/generated_graphs/generated_graph_with_weights.csv'
     loader = GraphLoader(file_path)
 
     # Carica il grafo con i pesi

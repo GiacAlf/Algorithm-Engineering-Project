@@ -4,7 +4,7 @@ The time complexity of this implementation is O(n^7)
 """
 
 import networkx as nx
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 def ford_fulkerson_min_cut(G):
@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     try:
         # input directory for generated graphs
-        file_path = '../graphs/generated_graphs/generated_graph_with_weights.csv'
+        file_path = '../graphs_utility_functions/generated_graphs/generated_graph_with_weights.csv'
         loader = GraphLoader(file_path)
 
         # load the graph from the CSV file

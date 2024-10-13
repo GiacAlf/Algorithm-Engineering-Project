@@ -1,4 +1,4 @@
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 # calcola delta, ossia il grado minimo di G
@@ -14,7 +14,7 @@ class MaxDegreeCalculator:
 
 if __name__ == '__main__':
     # Path del file CSV generato
-    file_path = '../../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../graphs_utility_functions/generated_graphs/generated_graph.csv'
 
     # Carica il grafo dal file
     loader = GraphLoader(file_path)

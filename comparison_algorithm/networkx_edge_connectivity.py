@@ -3,7 +3,7 @@ This script is used to calculate the edge connectivity of a given graph using th
 """
 
 import networkx as nx
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 if __name__ == '__main__':
@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     try:
         # input directory for generated graphs
-        file_path = '../graphs/generated_graphs/generated_graph_with_weights.csv'  # Path to your CSV file
+        file_path = '../graphs_utility_functions/generated_graphs/generated_graph_with_weights.csv'
         loader = GraphLoader(file_path)
 
         # load the graph from the CSV file with weights equal to 1

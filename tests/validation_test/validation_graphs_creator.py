@@ -11,7 +11,7 @@ if __name__ == '__main__':
     """ GRAPHS CREATION """
 
     """ with the parameters below, it can be generated num_graphs graphs with num_nodes nodes each
-     and the number of edges randomly selected or setted by the user.
+     and the number of edges randomly selected or set by the user.
      The step parameter sets the increment of the number of node from the previous one."""
 
     # fixed parameters, change this parameters if needed

@@ -1,7 +1,7 @@
 import networkx as nx
 from matplotlib import pyplot as plt
 
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 def stoer_wagner_min_cut(graph):
@@ -87,7 +87,7 @@ print(f"The Stoer-Wagner edge connectivity value of the graph is: {min_cut}")
 if __name__ == '__main__':
     try:
         # Path del file CSV contenente il grafo
-        file_path = '../tests graphs/generated_graphs/generated_graph_with_weights.csv'
+        file_path = '../tests graphs_utility_functions/generated_graphs/generated_graph_with_weights.csv'
         loader = GraphLoader(file_path)
 
         # Carica il grafo dal CSV con capacità predefinita di 1
@@ -117,7 +117,7 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     try:
         # Path del file CSV contenente il grafo
-        file_path = '../tests graphs/generated_graphs/generated_graph.csv'
+        file_path = '../tests graphs_utility_functions/generated_graphs/generated_graph.csv'
         loader = GraphLoader(file_path)
 
         # Carica il grafo dal CSV con capacità predefinita di 1

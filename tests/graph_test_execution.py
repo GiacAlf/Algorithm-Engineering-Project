@@ -11,9 +11,9 @@ import os
 import time
 import pandas as pd
 import networkx as nx
-from graphs.graph_loader import GraphLoader
-from stoer_wagner.stoer_wagner import stoer_wagner
-from ford_fulkerson.ford_fulkerson import ford_fulkerson_min_cut
+from graphs_utility_functions.graph_loader import GraphLoader
+from stoer_wagner_algorithm.stoer_wagner import stoer_wagner
+from ford_fulkerson_algorithm.ford_fulkerson import ford_fulkerson_min_cut
 
 
 # function that runs Stoer-Wagner algorithm on all graphs in the input directory

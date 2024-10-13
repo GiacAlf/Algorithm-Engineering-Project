@@ -1,7 +1,7 @@
 """
 This script is used to validate the Stoer-Wagner algorithm and the Ford-Fulkerson algorithm
  compared to NetworkX edge connectivity algorithm on simple undirected graphs created by
- validation_graphs_creator.py, or simply the ones that are uploaded, stored in tests graphs/generated_graphs.
+ validation_graphs_creator.py, or simply the ones that are uploaded, stored in tests_graphs/generated_graphs.
 It runs all the algorithms and saves their results in validation_test/results/generated_graphs in 3 different
  CSV file but only if all the simple graphs, undirected, not empty and not isolated checks are true.
 """

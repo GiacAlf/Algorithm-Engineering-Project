@@ -1,4 +1,4 @@
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 from Saranurak_algorithm.Sub_algorithms.Expander_Decomposition.CutMatching import CutMatching
 
 
@@ -96,7 +96,7 @@ def shave(graph, S):
 
 
 if __name__ == '__main__':
-    file_path = '../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../graphs_utility_functions/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

@@ -7,7 +7,7 @@ Then it saves the graph as a CSV file.
 import csv
 import networkx as nx
 import random
-from graphs.graph_plot import plot_graph
+from graphs_utility_functions.graph_plot import plot_graph
 
 
 # function that creates a simple connected random graph

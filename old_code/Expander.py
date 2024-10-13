@@ -1,5 +1,5 @@
 import networkit as nk
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 from old_code.Saranurak_algorithm.Utility_algorithms.calculate_delta import DeltaCalculator
 from old_code.Saranurak_algorithm.Utility_algorithms.high_degree_node import find_most_connected_node
 from itertools import combinations
@@ -65,7 +65,7 @@ class ExpanderDecomposition:
 
 if __name__ == '__main__':
     # Carica il grafo
-    file_path = '../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../graphs_utility_functions/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

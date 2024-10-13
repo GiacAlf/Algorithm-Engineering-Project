@@ -1,6 +1,6 @@
 import networkit as nk
 import networkx as nx
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 def stoer_wagner_edge_connectivity(graph):
@@ -15,7 +15,7 @@ def stoer_wagner_edge_connectivity(graph):
     for edge in graph.iterEdges():
         g_nx.add_edge(edge[0], edge[1])
 
-    # Calcola il cut minimo usando l'algoritmo di stoer_wagner
+    # Calcola il cut minimo usando l'algoritmo di stoer_wagner_algorithm
     min_cut_value, partition = nx.stoer_wagner(g_nx)
 
     return min_cut_value
@@ -23,7 +23,7 @@ def stoer_wagner_edge_connectivity(graph):
 
 if __name__ == '__main__':
     # Carica il grafo
-    file_path = '../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../graphs_utility_functions/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 

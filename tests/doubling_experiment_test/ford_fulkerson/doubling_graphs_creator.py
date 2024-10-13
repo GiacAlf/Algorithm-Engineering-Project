@@ -1,6 +1,6 @@
 """
 This script is used to generate a fixed number of simple graphs using
-test/graphs_creation.generate_and_save_graphs function with a fixed number of nodes and  a fixed or random
+test/graphs_creation.generate_and_save_graphs function with a fixed number of nodes and a fixed or random
 number of edges, saving them in CSV files in local tests_graphs/generated_graphs.
 """
 
@@ -27,9 +27,9 @@ def create_edges_list_doubling_experiment(start_edge, num_graph):
 
 if __name__ == '__main__':
 
-    """ FORD FULKERSON DOUBLING EXPERIMENTS GRAPHS CREATION """
+    """ FORD-FULKERSON DOUBLING EXPERIMENTS GRAPHS CREATION """
 
-    """ In this main some fixed parameters are chosen to generate the graphs with fixed number of nodes and 
+    """ In this main some fixed parameters are chosen to generate graphs with fixed number of nodes and 
     fixed number of edges, doubling each time from the previous one.
      All of this can be changes directly by user giving a node_list and an edge_list as parameters of 
      generate_and_save_graphs function."""

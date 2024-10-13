@@ -1,5 +1,5 @@
 import random
-from graphs.graph_plot import plot_graph, convert_to_networkx
+from graphs_utility_functions.graph_plot import plot_graph, convert_to_networkx
 from old_code.My_Expander_Decomposition.GraphLoader import load_graph_from_csv
 
 
@@ -66,7 +66,7 @@ class ExpanderDecomposition:
 
 # Esempio di utilizzo
 if __name__ == "__main__":
-    file_path = '../../../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../../../graphs_utility_functions/generated_graphs/generated_graph.csv'
     G = load_graph_from_csv(file_path)
 
     G_nx = convert_to_networkx(G)

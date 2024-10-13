@@ -1,5 +1,5 @@
 import networkit as nk
-from graphs.graph_loader import GraphLoader
+from graphs_utility_functions.graph_loader import GraphLoader
 
 
 # class for the first part of the Edge Cut computing
@@ -16,7 +16,7 @@ class ExpanderDecomposition:
 
 if __name__ == '__main__':
     # loads the graph
-    file_path = '../graphs/generated_graphs/generated_graph.csv'
+    file_path = '../graphs_utility_functions/generated_graphs/generated_graph.csv'
     loader = GraphLoader(file_path)
     graph = loader.load_graph_from_csv()
 
