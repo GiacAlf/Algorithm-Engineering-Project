@@ -1,6 +1,6 @@
 """
 This script is used to run the Stoer-Wagner algorithm on a given graph
-The time complexity of the algorithm is O(n*m*log n)
+The time complexity of the algorithm is O(m*n*log n)
 """
 
 from itertools import islice
@@ -84,7 +84,7 @@ if __name__ == '__main__':
         loader = GraphLoader(file_path)
 
         # load the graph from the CSV file
-        graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
+        graph = loader.load_graph_from_csv_with_weight()
 
         # assert that the graph is not empty
         assert graph.number_of_nodes() > 0, "The graph must have at least one node"

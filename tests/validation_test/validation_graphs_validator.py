@@ -1,8 +1,8 @@
 """
 This script is used to validate the Stoer-Wagner algorithm and the Ford-Fulkerson algorithm
  compared to NetworkX edge connectivity algorithm on the generated simple undirected graphs created by
- generated_graphs_creator.py stored in test graphs/generated_graphs.
-The script runs all the algorithms and saves their results in the results/generated_graphs in a CSV file only
+ validation_graphs_creator.py, or simply uploaded, stored in tests graphs/generated_graphs.
+It runs all the algorithms and saves their results in the results/generated_graphs in a CSV file only
 if the check about simple graphs is true.
 """
 
@@ -28,7 +28,7 @@ def run_stoer_wagner_on_graphs(input_dir, output_file):
 
             # loads the graph
             loader = GraphLoader(graph_path)
-            graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
+            graph = loader.load_graph_from_csv_with_weight()
 
             # number of edges
             num_edges = graph.number_of_edges()
@@ -74,7 +74,7 @@ def run_ford_fulkerson_on_graphs(input_dir, output_file):
 
             # loads the graph
             loader = GraphLoader(graph_path)
-            graph = loader.load_graph_from_csv_with_capacity(use_networkx=True)
+            graph = loader.load_graph_from_csv_with_capacity()
 
             # number of edges
             num_edges = graph.number_of_edges()
@@ -120,7 +120,7 @@ def run_networkx_edge_connectivity_on_graphs(input_dir, output_file):
 
             # loads the graph
             loader = GraphLoader(graph_path)
-            graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
+            graph = loader.load_graph_from_csv_with_weight()
 
             # number of edges
             num_edges = graph.number_of_edges()
@@ -155,21 +155,22 @@ def run_networkx_edge_connectivity_on_graphs(input_dir, output_file):
 
 # function that checks if the graph is simple and undirected
 def is_simple_undirected_graph(G):
+
     # verifies if the graph is directed
     if G.is_directed():
-        print("Il grafo è orientato.")
+        print("The graph is directed.")
         return False
 
     # verifies if the graph contains loops
     if any(G.has_edge(n, n) for n in G.nodes):
-        print("Il grafo contiene dei loop.")
+        print("The graph contains loops.")
         return False
 
     # verifies if the graph contains multiple edges between the two same nodes
     if isinstance(G, nx.MultiGraph):
         for u, v in G.edges:
             if G.number_of_edges(u, v) > 1:
-                print(f"Il grafo ha archi multipli tra {u} e {v}.")
+                print(f"The graph contains multiple edges between {u} and {v}.")
                 return False
 
     print("The graph is simple and undirected.")
@@ -178,6 +179,7 @@ def is_simple_undirected_graph(G):
 
 # function that checks if the graph contains at least one node
 def is_not_empty_graph(graph):
+
     if graph.number_of_nodes() > 0:
         print(f"The graph is not empty.")
         return True
@@ -186,6 +188,7 @@ def is_not_empty_graph(graph):
 
 # function that checks if the graph contains isolated nodes
 def is_not_isolated_graph(graph):
+
     if all(graph.degree(node) > 0 for node in graph.nodes()):
         print(f"The graph is not isolated.")
         return True
@@ -202,7 +205,7 @@ def check_all_graphs(input_dir):
 
             # loads the graph
             loader = GraphLoader(graph_path)
-            graph = loader.load_graph_from_csv_with_weight(use_networkx=True)
+            graph = loader.load_graph_from_csv_with_weight()
 
             print(f"Graph loaded has {graph.number_of_nodes()} nodes and {graph.number_of_edges()} edges.")
 
@@ -225,7 +228,8 @@ def check_all_graphs(input_dir):
 
 if __name__ == '__main__':
 
-    """ GENERATED GRAPHS VALIDATION TESTS """
+    """ GRAPHS VALIDATION TESTS """
+
     try:
 
         # input directory for generated graphs

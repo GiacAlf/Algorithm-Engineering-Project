@@ -147,5 +147,5 @@ def test_expander_decomposition():
     print("Expander Decomposition:", expander_decomp)
 
 
-# Run the test
+# Run the tests
 test_expander_decomposition()

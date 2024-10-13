@@ -31,7 +31,7 @@ def load_graph_from_gml(file_path):
 
 
 if __name__ == '__main__':
-    result_folder = '../../../test graphs/generated_graphs/'
+    result_folder = '../../../tests graphs/generated_graphs/'
     graph_file_name = 'generated_graph'
 
     # Paths for the different formats

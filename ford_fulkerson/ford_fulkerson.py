@@ -42,7 +42,7 @@ if __name__ == '__main__':
         loader = GraphLoader(file_path)
 
         # load the graph from the CSV file
-        graph = loader.load_graph_from_csv_with_capacity(use_networkx=True)
+        graph = loader.load_graph_from_csv_with_capacity()
 
         # assert that the graph is not empty
         assert graph.number_of_nodes() > 0, "The graph must have at least one node"
