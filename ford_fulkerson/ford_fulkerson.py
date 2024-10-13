@@ -1,6 +1,6 @@
 """
-This script is used to run the Ford-Fulkerson algorithm on a given graph
-the time complexity of this implementation is O(n^7)
+This script is used to run the Ford-Fulkerson algorithm on a given graph.
+The time complexity of this implementation is O(n^7)
 """
 
 import networkx as nx

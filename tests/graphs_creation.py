@@ -1,6 +1,7 @@
 """This function is used to generate a fixed number of simple graphs, equals to node_list length, using
 create_connected_simple_random_graph_with_weights function with fixed number of nodes and a fixed or random
- number of edges, saving them in CSV files in tests graphs/generated_graphs.
+ number of edges, saving them in CSV files in the given output_dir directory.
+The randomness of the number of edges can be set either by giving edge_list = [] or len(edge_list) != len(node_list)
 """
 
 import os

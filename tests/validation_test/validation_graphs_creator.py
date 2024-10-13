@@ -1,10 +1,10 @@
 """
 This script is used to generate a fixed number of simple graphs using
 tests/graphs_creator.generate_and_save_graphs function with fixed number graph, fixed number of nodes and
-random number of edges set as parameters, saving them in CSV files in tests_graphs/generated_graphs.
+random number of edges set as parameters, saving them in CSV files in local tests_graphs/generated_graphs.
 """
 
-from tests.graphs_creator import generate_and_save_graphs
+from tests.graphs_creation import generate_and_save_graphs
 
 if __name__ == '__main__':
 
